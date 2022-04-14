@@ -28,15 +28,18 @@
 
 指定要进行耗时测试的类：**com.ayg.tools.test.AppTest.testApp()**
 
-`-javaagent:target/exec-timer.jar=@M-com.ayg.tools.test.AppTest$testApp||@C-com.ayg.tools.test.AppTest`
+	-javaagent:target/exec-timer.jar=@M-com.ayg.tools.test.AppTest$testApp||@C-com.ayg.tools.test.AppTest
 
 ###（3）运行jar包
 
-javar -javaaget:[exec-timer.jar全路径]=@M|C|P-包全名|类全名$方法1,方法2...方法N -jar [可执行Jar的全路径]
+	java -javaaget:[exec-timer.jar全路径]=@M|C|P-包全名|类全名$方法1,方法2...方法N -jar [可执行Jar的全路径]
 
 示例：
-`java -javaagent:/code/open/exec-timer/target/exec-timer.jar=@P-com.ayg.contract.service -jar contract-web.jar
-`
+	
+	java 
+	-javaagent:/code/open/exec-timer/target/exec-timer.jar=@P-com.ayg.contract.service 
+	-jar contract-web.jar
+
 
 **命令说明**
 
@@ -47,7 +50,7 @@ a. 指定类方法打印执行时长： __@M-类全名$方法1,方法2__
 
 b. 指定类所有方法打印执行时长： __@C-类全名__ 
 
-	示例：`@C-com.ayg.contract.service.ContractService`
+	示例：@C-com.ayg.contract.service.ContractService
 
 c. 指定包下所有类所有方法打印执行时长： __@P-包名__ 
 
