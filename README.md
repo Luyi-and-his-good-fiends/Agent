@@ -17,26 +17,23 @@
 
 ### 三、使用方法
 
-- 获取agent包
-      方式一：直接下载jar：[exec-timer.jar](https://github.com/YorkHwang/exec-timer/blob/master/jar/exec-timer.jar)
-	
-	方式二：自己打包: mvn clean package
+（1） 获取agent包
+	`mvn clean package`
 	在target目录下将生成对应的exec-timer.jar
 - 测试用例
 
-VM加上如下参数
+（2）VM加上如下参数（本此次，默认即可）
+指定要进行耗时测试的类：**com.ayg.tools.test.AppTest.testApp()**
 
--javaagent:target/exec-timer.jar=@M-com.ayg.tools.test.AppTest$testApp||@C-com.ayg.tools.test.AppTest
+`-javaagent:target/exec-timer.jar=@M-com.ayg.tools.test.AppTest$testApp||@C-com.ayg.tools.test.AppTest`
 
-执行测试用例 com.ayg.tools.test.AppTest.testApp()
-
-- Jar启动方式
+（3）运行jar包
 
 javar -javaaget:[exec-timer.jar全路径]=@M|C|P-包全名|类全名$方法1,方法2...方法N -jar [可执行Jar的全路径]
 
 示例：
-java -javaagent:/code/open/exec-timer/target/exec-timer.jar=@P-com.ayg.contract.service -jar contract-web.jar
-
+`java -javaagent:/code/open/exec-timer/target/exec-timer.jar=@P-com.ayg.contract.service -jar contract-web.jar
+`
 - 命令说明
 
 a.指定类方法打印执行时长： __@M-类全名$方法1,方法2__ 
@@ -50,6 +47,8 @@ c.指定包下所有类所有方法打印执行时长： __@P-包名__
 
  __多个命令用双竖线||间隔__ 
 
+（4）查看效果
 
+![avatar](https://t2.picb.cc/2022/04/14/622P4F.jpg)
 
-
+完结
